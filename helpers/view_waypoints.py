@@ -13,6 +13,7 @@ t_x, t_y = 909.48,1128.67
 
 translated_x = []
 translated_y = []
+translated_w = []
 def main():
     """
     Get all the points into an array, and show them
@@ -25,14 +26,15 @@ def main():
             x_p, y_p, _z, _yaw, _ = map(float, line)
             translated_x.append(x_p + t_x)
             translated_y.append(y_p + t_y)
+            translated_w.append(_yaw)
             w_p = np.append(w_p, complex(x_p, y_p))
         print(len(w_p.real))
         print(len(w_p.imag))
         #plt.scatter(w_p.real, w_p.imag)
         plt.scatter(translated_x, translated_y)
 
-        for x,y in zip(translated_x, translated_y):
-            print("%1.3f, %1.3f, %1.3f" % (x,y,0))
+        for x,y,w in zip(translated_x, translated_y, translated_w):
+            print("%1.3f, %1.3f, %1.3f" % (x,y,w))
 
         plt.grid('on')
         plt.show()
