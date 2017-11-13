@@ -34,7 +34,7 @@ def main():
         plt.scatter(translated_x, translated_y)
 
         for x,y,w in zip(translated_x, translated_y, translated_w):
-            print("%1.3f, %1.3f, %1.3f" % (x,y,w))
+            print("%1.3f, %1.3f, %1.3f, %1.3f" % (x,y,0,w))
 
         plt.grid('on')
         plt.show()
